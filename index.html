@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <!--<meta charset="UTF-8">-->
+    <title>スマブラSP  おまかせ選択</title>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <script type="text/javascript">
+    $(function() {
+    $('button').click(function() {
+        var charaArray = ['mario','donkey','link','samus','yoshi','kirby','fox','pikachu','luigi','ness','captain','purin','peach','koopa','ice_climber','sheik','zelda','mariod','pichu','falco','marth','lucina','younglink','ganon','mewtwo','roy','gamewatch','pit','pitb','szerosuit','wario','snake','ike','ptrainer','diddy','lucas','sonic','dedede','pikmin','lucario','robot','toonlink','wolf','murabito','rockman','wiifit','rosetta','littlemac','gekkouga','palutena','pacman','reflet','shulk','koopajr','duckhunt','ryu','cloud','kamui','bayonetta','inkling','ridley','simon','krool','shizue','gaogaen','samusd','daisy','chrom','ken','richter','packun','jack','brave','buddy','dolly','master'];
+        var charaList = [];
+        charaList = shuffleAry(charaArray);    
+		
+		var playerOneList = [];
+		var playerTwoList = [];
+		
+		for (var i=0; i<5; i++){
+		  playerOneList.push('<li>'+ charaList[i] + '</li>' + '<img src="SSBU_icon/' + charaList[i] + '.png"/>');
+		  charaList.shift();
+		}
+		for (var i=0; i<5; i++){
+		  playerTwoList.push('<li>'+ charaList[i] + '</li>' + '<img src="SSBU_icon/' + charaList[i] + '.png"/>');
+		  charaList.shift();
+		}
+		 document.getElementById('playerOneListId').innerHTML = playerOneList.join('');
+		 document.getElementById('playerTwoListId').innerHTML = playerTwoList.join('');
+
+		
+    });
+    });
+
+
+
+    function shuffleAry(ary) {
+	  var i = ary.length;
+	  while(i){
+	    var j = Math.floor(Math.random()*i);
+	    var t = ary[--i];
+	    ary[i] = ary[j];
+	    ary[j] = t;
+	  }
+	  return ary;
+	}
+    </script>
+  </head>
+  <body>
+    <h1>Reday To Fight!!</h1>
+    <p>団体戦用おまかせ</p>
+    <button id="button">おまかせ開始</button>
+     <div>PlayerOne</div>
+     <ul class="playerOneListBox clearfix" id = "playerOneListId">
+            
+     </ul>
+     <div>PlayerTwo</div>
+
+     <ul class="playerTwoListBox clearfix" id = "playerTwoListId">
+            
+     </ul>
+
+  </body>
+</html>
